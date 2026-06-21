@@ -7,6 +7,7 @@ from fastapi.exceptions import HTTPException
 from piccolo.engine import engine_finder
 from piccolo_admin.endpoints import create_admin
 from piccolo_api.crud.serializers import create_pydantic_model
+from pydantic import BaseModel
 from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
 
@@ -18,6 +19,7 @@ from models.task import Task
 async def open_database_connection_pool():
     try:
         engine = engine_finder()
+        assert engine
         await engine.start_connection_pool()
     except Exception:
         print("Unable to connect to the database")
@@ -26,6 +28,7 @@ async def open_database_connection_pool():
 async def close_database_connection_pool():
     try:
         engine = engine_finder()
+        assert engine
         await engine.close_connection_pool()
     except Exception:
         print("Unable to connect to the database")
@@ -58,12 +61,12 @@ app = FastAPI(
 )
 
 
-TaskModelIn: Any = create_pydantic_model(
+TaskModelIn = create_pydantic_model(
     table=Task,
     model_name="TaskModelIn",
 )
 
-TaskModelOut: Any = create_pydantic_model(
+TaskModelOut = create_pydantic_model(
     table=Task,
     include_default_columns=True,
     model_name="TaskModelOut",
@@ -97,19 +100,20 @@ async def single_task(task_id: int):
 
 
 @app.post("/tasks/", response_model=TaskModelOut, tags=["Task"])
-async def create_task(task_model: TaskModelIn):
+async def create_task(task_model: TaskModelIn):  # pyright: ignore[reportInvalidTypeForm]
     task = Task(**task_model.model_dump())
     await task.save()
     return task.to_dict()
 
 
 @app.put("/tasks/{task_id}/", response_model=TaskModelOut, tags=["Task"])
-async def update_task(task_id: int, task_model: TaskModelIn):
+async def update_task(task_id: int, task_model: TaskModelIn):  # pyright: ignore[reportInvalidTypeForm]
     task = (
         await Task.objects()
         .get(Task._meta.primary_key == task_id)
         .callback(check_record_not_found)
     )
+    assert task
     for key, value in task_model.model_dump().items():
         setattr(task, key, value)
 
@@ -128,4 +132,5 @@ async def delete_task(task_id: int):
         .get(Task._meta.primary_key == task_id)
         .callback(check_record_not_found)
     )
+    assert task
     await task.remove()

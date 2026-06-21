@@ -1,0 +1,15 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "recommendations": [
+        "morningstart.python-ovsc"
+    ],
+    "python.analysis.extraPaths": [
+        "src",
+        "tests/cases"
+    ],
+    "python.analysis.packageIndexDepths": [
+        { "name": "langchain", "depth": 4, "includeAllSymbols": true },
+        { "name": "langgraph", "depth": 4, "includeAllSymbols": true },
+        { "name": "deepagents", "depth": 4, "includeAllSymbols": true }
+    ]
+}
