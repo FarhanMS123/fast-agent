@@ -1,4 +1,5 @@
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, status
@@ -48,7 +49,10 @@ app = FastAPI(
                 # allowed_hosts=['my_site.com']
             ),
         ),
-        Mount("/static/", StaticFiles(directory="static")),
+        Mount(
+            "/static/",
+            StaticFiles(directory=Path(__file__).parents[1] / "static"),
+        ),
     ],
     lifespan=lifespan,
 )

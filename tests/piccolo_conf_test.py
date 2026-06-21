@@ -1,4 +1,4 @@
-from db.piccolo_conf import *  # noqa
+from config.piccolo_conf import *  # noqa
 
 DB = PostgresEngine(
     config={
