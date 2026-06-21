@@ -1,0 +1,49 @@
+google-adk
+google.genai
+fastapi
+uvicorn
+langchain-text-splitters
+bs4
+requests
+langchain[google-genai]
+langchain-postgres
+psycopg
+deepagents # >=0.4,<0.5
+langchain # >=1.0,<2
+langchain-core # >=1.0,<2
+langchain-google-genai # >=4.0,<5
+langgraph # >=1.0,<2
+pydantic # >=2.0,<3
+# tavily-python
+python-dotenv
+pyrefly
+basedpyright # CLI match for the VSCode "Problems" tab (your editor reports basedpyright); pure-python wheel, reads pyrightconfig.json
+pyright # Microsoft's reference checker; this PyPI wrapper downloads the Node.js pyright binary on first run (needs Node)
+# functions-framework==3.*
+fastapi
+fastapi[standard]
+# a2wsgi
+# aegra-cli
+httpx
+google-apps-chat
+google-apps-card
+google-auth-httplib2
+google-auth-oauthlib
+google-api-python-client
+# google-events
+# google-cloud-gsuiteaddons
+piccolo # ORM for tasks/users tables + migrations (already installed; was transitive)
+langgraph-checkpoint-postgres
+langchain-mcp-adapters
+uvicorn
+starlette
+jinja2
+rich # pretty-print/inspect nested objects in test cases; currently only transitive (langchain/typer), declared here since now used directly
+# devtools
+
+# Observability — OTLP tracing exported to Phoenix, Jaeger, and Langfuse.
+# (opentelemetry-sdk/api are already pulled in transitively; pinned here explicitly.
+#  LangChainInstrumentor covers langchain / langgraph / deepagents spans.)
+opentelemetry-sdk # >=1.41,<2
+opentelemetry-exporter-otlp-proto-http # >=1.41,<2
+openinference-instrumentation-langchain # >=0.1,<1

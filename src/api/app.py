@@ -9,9 +9,9 @@ from piccolo_api.crud.serializers import create_pydantic_model
 from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
 
-from home.endpoints import HomeEndpoint
-from home.piccolo_app import APP_CONFIG
-from home.tables import Task
+from api.endpoints import HomeEndpoint
+from config.piccolo_app import APP_CONFIG
+from models.task import Task
 
 
 async def open_database_connection_pool():

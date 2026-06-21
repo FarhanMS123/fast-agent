@@ -1,0 +1,2 @@
+- Your primary and basic instruction is in @AGENTS.md
+- You are not allowed to access certain directories/files is stated in @.aiexclude

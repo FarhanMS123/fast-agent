@@ -1,0 +1,13 @@
+{
+    "include": [
+        "**/*.py",
+        "**/*.pyi",
+        "**/*.ipynb"
+    ],
+    "extraPaths": [
+        "src",
+        "tests/cases",
+    ],
+    "venvPath": ".",
+    "venv": ".venv"
+}

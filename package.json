@@ -1,0 +1,24 @@
+{
+  "name": "test-adk",
+  "version": "1.0.0",
+  "description": "```sh python -m venv .venv source .venv/bin/activate pip install -r requirements.txt ```",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FarhanMS123/fast-agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "pyright": "^1.1.410"
+  }
+}

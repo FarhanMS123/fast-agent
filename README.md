@@ -1,4 +1,4 @@
-# fast-agent
+# Fast Agent
 
 ## Setup
 

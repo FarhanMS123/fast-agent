@@ -1,0 +1,12 @@
+project-includes = [
+    "**/*.py*",
+    "**/*.ipynb",
+]
+
+# Allow resolving both `src.api` (from root) and bare imports inside src/
+# e.g. `from config.models import model` in src/agent/agent_root.py
+search_path = [
+    # ".",
+    "src",
+    "tests/cases",
+]
